@@ -1,0 +1,16 @@
+---
+- name: Install and start nginx
+  hosts: all
+  become: yes  # Use `become: yes` for privilege escalation
+
+  tasks:
+    - name: Install nginx
+      apt:
+        name: nginx  # Correct package name
+        state: present  # Use `state: present` for installation
+
+    - name: Start nginx
+      service:
+        name: nginx
+        state: started
+
